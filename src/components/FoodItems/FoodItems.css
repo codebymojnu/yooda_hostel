@@ -1,0 +1,7 @@
+#loadSingleItem{
+    display: none;
+}
+
+.editBtn, .deleteBtn{
+    cursor: pointer;
+}

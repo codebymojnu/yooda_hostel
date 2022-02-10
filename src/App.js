@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import AddFood from "./components/AddFood/AddFood";
+import AddStudent from "./components/AddStudent/AddStudent";
+import Distribution from "./components/Distribution/Distribution";
+import FoodItems from "./components/FoodItems/FoodItems";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+import StudentsTable from "./components/StudentsTable/StudentsTable";
+import UpdateFoodItem from "./components/UpdateFoodItem/UpdateFoodItem";
+import UpdateStudent from "./components/UpdateStudent/UpdateStudent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header/>
+      <Switch>
+        <Route exact path="/">
+          <Home/>
+        </Route>
+        <Route path="/addstudent">
+          <AddStudent/>
+        </Route>
+        <Route path="/update-student/:id">
+          <UpdateStudent/>
+        </Route>
+        <Route path="/distribution">
+          <Distribution/>
+        </Route>
+        <Route path="/students-list">
+          <StudentsTable/>
+        </Route>
+        <Route path="/addfood">
+          <AddFood/>
+        </Route>
+        <Route path="/foodItems">
+          <FoodItems/>
+        </Route>
+        <Route path="/updateItem/:id">
+          <UpdateFoodItem/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

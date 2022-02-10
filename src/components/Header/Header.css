@@ -1,0 +1,15 @@
+.header {
+    margin: 40px;
+    padding: 7px;
+}
+
+.header a {
+    font-size: 21px;
+    margin-left: 20px;
+    padding: 3px;
+    text-decoration: none;
+}
+
+.header a:hover{
+    text-decoration: underline;
+}
