@@ -1,8 +1,10 @@
 import { Button, Checkbox, Container, FormControlLabel, FormGroup, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const AddStudent = () => {
+    const history = useHistory();
     const [checked, setChecked] = useState(true);
     const [label, setLabel] = useState('Active');
 
@@ -34,7 +36,7 @@ const AddStudent = () => {
     };
 
     const postToServer = (student) => {
-        fetch('http://localhost:5000/addstudent', {
+        fetch('https://frozen-woodland-52666.herokuapp.com/addstudent', {
             method: 'POST',
             body: JSON.stringify(student),
             headers: {
@@ -43,6 +45,11 @@ const AddStudent = () => {
         })
         .then(response => response.json())
         .then(item => console.log(item));
+        changeLocation();
+    }
+
+    const changeLocation = () => {
+        history.push('/students-list')
     }
     return (
         <React.Fragment>

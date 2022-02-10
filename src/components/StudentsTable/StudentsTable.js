@@ -8,7 +8,7 @@ const StudentsTable = () => {
     const [checked, setChecked] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/students')
+        fetch('https://frozen-woodland-52666.herokuapp.com/api/students')
         .then(res => res.json())
         .then(data => setStudents(data));
     }, []);
@@ -21,7 +21,7 @@ const StudentsTable = () => {
             const updateStudent = {...student};
             updateStudent.status = e.target.checked;
             setChecked(e.target.checked)
-            const url = `http://localhost:5000/update-status/${students[i]._id}`;
+            const url = `https://frozen-woodland-52666.herokuapp.com/update-status/${students[i]._id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

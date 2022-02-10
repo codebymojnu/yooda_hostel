@@ -16,7 +16,7 @@ const AddFood = () => {
     };
 
     const postToServer = (foodItem) => {
-        fetch('http://localhost:5000/addfood', {
+        fetch('https://frozen-woodland-52666.herokuapp.com/addfood', {
             method: 'POST',
             body: JSON.stringify(foodItem),
             headers: {

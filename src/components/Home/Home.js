@@ -1,9 +1,12 @@
 import React from 'react';
+import FoodItems from '../FoodItems/FoodItems';
+import StudentsTable from '../StudentsTable/StudentsTable' 
 
 const Home = () => {
     return (
-        <div>
-            <h2>I am home</h2>
+        <div style={{marginBottom: '80px'}}>
+            <StudentsTable/>
+            <FoodItems/>
         </div>
     );
 };

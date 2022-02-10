@@ -22,7 +22,7 @@ const Distribution = () => {
     const handleChange = (event) => {
         const roll = event.target.value;
         setStudentRoll(roll);
-        fetch(`http://localhost:5000/stu/${roll}`)
+        fetch(`https://frozen-woodland-52666.herokuapp.com/stu/${roll}`)
             .then(res => res.json())
             .then(data => setStudent(data));
 
@@ -58,7 +58,7 @@ const Distribution = () => {
 
     const distribution = {name: student.name, studentId: student.roll, shift: shift, status: status, foodItemsList: foodItems};
     const handleClick = () => {
-        fetch('http://localhost:5000/addDistribution', {
+        fetch('https://frozen-woodland-52666.herokuapp.com/addDistribution', {
             method: 'POST',
             body: JSON.stringify(distribution),
             headers: {
