@@ -44,10 +44,11 @@ const StudentsRow = (props) => {
     .then(res => res.json())
     .then(result => {
         alert('deleted successfully');
+        document.querySelector(`.m${id}`).style.display = 'none';
     })
     }
     return (
-        <TableRow
+        <TableRow className={"m" + _id}
         >
             <TableCell>
                 {fullName}

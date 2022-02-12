@@ -22,7 +22,8 @@ const FoodItems = () => {
         })
     .then(res => res.json())
     .then(result => {
-        console.log('deleted');
+        alert('1 food item deleted');
+        document.querySelector(`.m${id}`).style.display = 'none';
     })
     }
 
@@ -39,11 +40,14 @@ const FoodItems = () => {
                         <TableRow>
                             <TableCell>Item Name</TableCell>
                             <TableCell>Cost Price</TableCell>
+                            <TableCell>Action</TableCell>
+                            <TableCell>Action</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {foodItems.map((row) => (
                             <TableRow
+                                className={"m" + row._id}
                                 key={row.name}
                             >
                                 <TableCell>

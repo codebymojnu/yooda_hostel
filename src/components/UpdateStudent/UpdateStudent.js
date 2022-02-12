@@ -1,9 +1,10 @@
 import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 const UpdateStudent = () => {
+    const history = useHistory();
     const [student, setStudent] = useState({});
     const { id } = useParams();
 
@@ -56,15 +57,15 @@ const UpdateStudent = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('Successfully updated');
-                    // setItem({});
+                    alert('Successfully updated 1 food item');
                 }
             })
+            history.push('/students-list');
     };
     return (
         <Container component="main" maxWidth="sm" sx={{ mb: 4, mt: 10 }}>
             <Typography variant="h6" gutterBottom>
-                Add Food Item
+                Update student details
             </Typography>
             <Box component="form" onSubmit={() => handleUpdate()} id="formAddFood" noValidate sx={{ mt: 1 }}>
                 <Grid container spacing={3}>

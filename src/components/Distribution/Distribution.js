@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button, Checkbox, Container, FormControl, FormControlLabel, InputLabel, MenuItem, Select } from '@mui/material';
+import { Button, Checkbox, Container, FormControl, FormControlLabel, Grid, InputLabel, MenuItem, Select } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
+import KhabarNeyaPolaPain from '../KhabarNeyaPolaPain/KhabarNeyaPolaPain';
 
 const Distribution = () => {
     const [student, setStudent] = useState([]);
@@ -16,7 +17,7 @@ const Distribution = () => {
     const [checked1, setChecked1] = useState(false);
     const [checked2, setChecked2] = useState(false);
     const [checked3, setChecked3] = useState(false);
-    const [foodItems, setFoodItems] = useState([]);
+    const [foodItems] = useState([]);
 
 
     const handleChange = (event) => {
@@ -56,7 +57,7 @@ const Distribution = () => {
         }
     };
 
-    const distribution = {name: student.name, studentId: student.roll, shift: shift, status: status, foodItemsList: foodItems};
+    const distribution = {fullName: student.fullName, studentId: student.roll, shift: shift, status: status, foodItemsList: foodItems, date: date.substring(0, 9)};
     const handleClick = () => {
         fetch('https://frozen-woodland-52666.herokuapp.com/addDistribution', {
             method: 'POST',
@@ -69,6 +70,12 @@ const Distribution = () => {
         .then(item => console.log(item));
     }
     return (
+        <Grid container component="main" sx={{ height: '100vh' }}>
+            <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}>
         <Container sx={{ width: '500px', margin: '0 auto' }}>
             <Box sx={{ maxWidth: 260 }}>
                 <FormControl fullWidth>
@@ -83,6 +90,7 @@ const Distribution = () => {
                         <MenuItem value={136805}>136805</MenuItem>
                         <MenuItem value={163261}>163261</MenuItem>
                         <MenuItem value={200113}>200113</MenuItem>
+
                     </Select>
                 </FormControl>
             </Box>
@@ -137,6 +145,12 @@ const Distribution = () => {
                 <Button variant="contained" sx={{ mt: 1, mb: 2 }} onClick={handleClick} fullWidth>Done</Button>
             </Box>
         </Container>
+        </Grid>
+        <Grid item xs={12} sm={8} md={5}>
+            <h4>Khabar neya pola-pan</h4>
+            <KhabarNeyaPolaPain/>
+        </Grid>
+        </Grid>
     );
 };
 

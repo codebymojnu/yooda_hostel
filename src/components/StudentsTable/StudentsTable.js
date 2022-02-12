@@ -58,6 +58,8 @@ const StudentsTable = () => {
                         <FormControlLabel control={<Checkbox checked={checked}/>} label={'Selcect All'} onChange={handleSelectAll}/>
                     </FormGroup>
                 </Box></TableCell>
+                    <TableCell>Action</TableCell>
+                    <TableCell>Action</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

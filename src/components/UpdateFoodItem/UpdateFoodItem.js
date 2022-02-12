@@ -1,8 +1,10 @@
 import { Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const UpdateFoodItem = () => {
+    const history = useHistory();
     const [item, setItem] = useState({});
     const { id } = useParams();
 
@@ -26,7 +28,7 @@ const UpdateFoodItem = () => {
     }
 
 
-    const handleUpdate = () => {
+    const handleUpdate = (event) => {
         const url = `https://frozen-woodland-52666.herokuapp.com/update-product/${id}`;
         fetch(url, {
             method: 'PUT',
@@ -38,16 +40,16 @@ const UpdateFoodItem = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('Successfully updated');
-                    setItem({});
+                   alert('1 product updated');
                 }
             })
+        history.push('/foodItems')
+        event.preventDefault();
     };
-
     return (
         <Container component="main" maxWidth="sm" sx={{ mb: 4, mt: 10 }}>
             <Typography variant="h6" gutterBottom>
-                Add Food Item
+               Update Food Item
             </Typography>
             <Box component="form" onSubmit={() => handleUpdate()} id="formAddFood" noValidate sx={{ mt: 1 }}>
                 <Grid container spacing={3}>

@@ -1,9 +1,11 @@
 import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import FoodItems from '../FoodItems/FoodItems';
 
 const AddFood = () => {
+    const history = useHistory();
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -12,7 +14,6 @@ const AddFood = () => {
             price: data.get('price')
         };
         postToServer(foodItem);
-        clearInput();
     };
 
     const postToServer = (foodItem) => {
@@ -24,11 +25,8 @@ const AddFood = () => {
             }
         })
         .then(response => response.json())
-        .then(item => console.log(item));
-    }
-
-    const clearInput = () => {
-        document.getElementById("formAddFood").reset();
+        .then(item => alert('1 product added'));
+        history.push('/foodItems');
     }
     return (
         <React.Fragment>

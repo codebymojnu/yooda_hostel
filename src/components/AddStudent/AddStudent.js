@@ -44,12 +44,8 @@ const AddStudent = () => {
             }
         })
         .then(response => response.json())
-        .then(item => console.log(item));
-        changeLocation();
-    }
-
-    const changeLocation = () => {
-        history.push('/students-list')
+        .then(item => alert('1 student added'));
+        history.push('/students-list');
     }
     return (
         <React.Fragment>
