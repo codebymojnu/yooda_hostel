@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AddFood from "./components/AddFood/AddFood";
 import AddStudent from "./components/AddStudent/AddStudent";
+import CheckStatus from "./components/CheckStatus/CheckStatus";
 import Distribution from "./components/Distribution/Distribution";
 import FoodItems from "./components/FoodItems/FoodItems";
 import Header from "./components/Header/Header";
@@ -16,6 +17,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home/>
+        </Route>
+        <Route path="/status">
+          <CheckStatus/>
         </Route>
         <Route path="/addstudent">
           <AddStudent/>

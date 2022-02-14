@@ -6,7 +6,7 @@ const KhabarNeyaPolaPain = () => {
     const [KhaowaPolaPains, setKhaowaPolaPains] = useState([]);
 
     useEffect(() => {
-        fetch('https://frozen-woodland-52666.herokuapp.com/khaowaStudent')
+        fetch('http://localhost:5000/khaowaStudent')
         .then(res => res.json())
         .then(data => setKhaowaPolaPains(data))
     }, [])
@@ -21,6 +21,7 @@ const KhabarNeyaPolaPain = () => {
                         <TableCell>Roll</TableCell>
                         <TableCell>Status</TableCell>
                         <TableCell>foodItems</TableCell>
+                        <TableCell>Shift</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

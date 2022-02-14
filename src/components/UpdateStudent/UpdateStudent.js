@@ -9,7 +9,7 @@ const UpdateStudent = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`https://frozen-woodland-52666.herokuapp.com/student/${id}`)
+        fetch(`http://localhost:5000/student/${id}`)
             .then(res => res.json())
             .then(data => setStudent(data));
 
@@ -46,7 +46,7 @@ const UpdateStudent = () => {
     }
 
     const handleUpdate = () => {
-        const url = `https://frozen-woodland-52666.herokuapp.com/update-student/${id}`;
+        const url = `http://localhost:5000/update-student/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

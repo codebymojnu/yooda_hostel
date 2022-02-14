@@ -11,6 +11,7 @@ const Header = () => {
             <Link to="/addfood">Add Food</Link>
             <Link to="/distribution">Distribution</Link>
             <Link to="/login">Login</Link>
+            <Link to="/status">Check Status</Link>
         </div>
     );
 };

@@ -15,7 +15,7 @@ const StudentsRow = (props) => {
     // handle checkbox
     const handleChange = (event) => {
         setChecked(event.target.checked);
-        const url = `https://frozen-woodland-52666.herokuapp.com/update-status/${_id}`;
+        const url = `http://localhost:5000/update-status/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -38,7 +38,7 @@ const StudentsRow = (props) => {
     // handle Delete Student
     // Delete an item
     const handleDeleteStudent = (id) => {
-        fetch(`https://frozen-woodland-52666.herokuapp.com/delete-student/${id}`, {
+        fetch(`http://localhost:5000/delete-student/${id}`, {
             method: 'DELETE'
         })
     .then(res => res.json())

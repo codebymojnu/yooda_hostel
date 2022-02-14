@@ -10,14 +10,14 @@ const FoodItems = () => {
     const history = useHistory();
 
     useEffect(() => {
-        fetch('https://frozen-woodland-52666.herokuapp.com/api/foodItems')
+        fetch('http://localhost:5000/api/foodItems')
             .then(res => res.json())
             .then(data => setFoodItems(data));
     }, [])
 
     // Delete an item
     const deleteItem = (id) => {
-        fetch(`https://frozen-woodland-52666.herokuapp.com/delete-food/${id}`, {
+        fetch(`http://localhost:5000/delete-food/${id}`, {
             method: 'DELETE'
         })
     .then(res => res.json())

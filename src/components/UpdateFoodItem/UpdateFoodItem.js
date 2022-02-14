@@ -9,7 +9,7 @@ const UpdateFoodItem = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`https://frozen-woodland-52666.herokuapp.com/item/${id}`)
+        fetch(`http://localhost:5000/item/${id}`)
             .then(res => res.json())
             .then(data => setItem(data));
 
@@ -29,7 +29,7 @@ const UpdateFoodItem = () => {
 
 
     const handleUpdate = (event) => {
-        const url = `https://frozen-woodland-52666.herokuapp.com/update-product/${id}`;
+        const url = `http://localhost:5000/update-product/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

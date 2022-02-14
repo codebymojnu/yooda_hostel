@@ -36,7 +36,7 @@ const AddStudent = () => {
     };
 
     const postToServer = (student) => {
-        fetch('https://frozen-woodland-52666.herokuapp.com/addstudent', {
+        fetch('http://localhost:5000/addstudent', {
             method: 'POST',
             body: JSON.stringify(student),
             headers: {
